@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">E-Robot رموت</string>
+    <string name="btn_find">أبحث عن E-Robot</string>
+    <string name="bt_not_enabled_leaving">لم يتم تفعيل البلوتوث. جاري اغلاق الرموت</string>
+    <string name="title_paired_devices">الأجهزة المعرفة</string>
+    <string name="title_other_devices">الأجهزة الأخرى</string>
+    <string name="button_scan">إبحث عن E-Robot</string>
+    <string name="none_paired">لايوجد جهاز معرف</string>
+    <string name="scanning">جاري البحث...</string>
+    <string name="none_found">لم يتم العثور على اي جهاز</string>
+    <string name="select_device">إختر الجهاز المطلوب</string>
+    <string name="connect">إبحث عن E-Robot</string>
+    <string name="discoverable">إيضاح الهاتف للغير</string>
+
+</resources>

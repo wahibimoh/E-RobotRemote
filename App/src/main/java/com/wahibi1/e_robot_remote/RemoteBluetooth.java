@@ -2,7 +2,7 @@
  * Copyright (C) 2014 Mohammed Alwahibi
  */
 
-package com.wahibi1.app;
+package com.wahibi1.e_robot_remote;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,8 +26,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.nio.ByteBuffer;
@@ -315,7 +313,7 @@ public class RemoteBluetooth
 
     public void update(int xaxis, int yaxis){
         byte[] bytes = ByteBuffer.allocate(8).putInt(xaxis).putInt(yaxis).array();
-        Log.d("app", "sending " + bytesToHex(bytes));
+        Log.d("e_robot_remote", "sending " + bytesToHex(bytes));
         mCommandService.write(bytes);
     }
 
@@ -329,7 +327,7 @@ public class RemoteBluetooth
         //swap byte order to be sent over bluetooth
         byte [] toBeSent = rearrangeBytes(bytes.array());
         toBeSent = packageBytes(toBeSent);
-        //Log.d("app", "sending "+ bytesToHex(toBeSent));
+        //Log.d("e_robot_remote", "sending "+ bytesToHex(toBeSent));
         mCommandService.write(toBeSent);
     }
 
@@ -371,7 +369,7 @@ public class RemoteBluetooth
 
         if(event.getAction() == MotionEvent.ACTION_UP ){
             v.setPressed(false);
-            //Log.d("app",v.getId() +" was released. ");
+            //Log.d("e_robot_remote",v.getId() +" was released. ");
             switch (v.getId()){
 
                 case R.id.sel:
@@ -423,7 +421,7 @@ public class RemoteBluetooth
 
         if(event.getAction() == MotionEvent.ACTION_DOWN ){
             v.setPressed(true);
-            //Log.d("app",v.getId() +" was clicked. ");
+            //Log.d("e_robot_remote",v.getId() +" was clicked. ");
             switch (v.getId()){
                 //the axises
                 case R.id.sel:
@@ -548,7 +546,7 @@ public class RemoteBluetooth
                 //success, we have a valid message
                 if(checksum == message){
                     result = rearrangeBytes(result);
-                    Log.d("app", "got messge!!:" + bytesToHex(result)); //<- here we do the processing
+                    Log.d("e_robot_remote", "got messge!!:" + bytesToHex(result)); //<- here we do the processing
                     processOutput(result);
                 }
 
@@ -560,12 +558,12 @@ public class RemoteBluetooth
     }
 
     public void processMessage(byte [] message, int size){
-        //Log.d("app","buffer before:"+bytesToHex(buffer,index));
+        //Log.d("e_robot_remote","buffer before:"+bytesToHex(buffer,index));
         for(int i = 0; i < size; i++)
             gotMessage(message[i]);
 
-        //Log.d("app","message:"+bytesToHex(message,size));
-        //Log.d("app","buffer after:"+bytesToHex(buffer,index));
+        //Log.d("e_robot_remote","message:"+bytesToHex(message,size));
+        //Log.d("e_robot_remote","buffer after:"+bytesToHex(buffer,index));
     }
 
     private static final int speaker = 1;

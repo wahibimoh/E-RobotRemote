@@ -2,7 +2,7 @@
  * Copyright (C) 2014 Mohammed Alwahibi
  */
 
-package com.wahibi1.app;
+package com.wahibi1.e_robot_remote;
 
 import java.io.IOException;
 import java.io.InputStream;

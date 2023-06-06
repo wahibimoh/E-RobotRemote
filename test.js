@@ -1,4 +1,5 @@
 (function () {
+console.log("test_123 clicked!")
 if( typeof window.res !== 'undefined') return;
 
 var selectedElement = null;
@@ -7,7 +8,9 @@ window.res = document.querySelectorAll('div');
 for(div of window.res) 
 	if(div.innerHTML == 'test_123') 
 		selectedElement = div
-
+	
+console.log("selectedElement",selectedElement)
+	
 function time() {
   var d = new Date();
   var s = d.getSeconds();
